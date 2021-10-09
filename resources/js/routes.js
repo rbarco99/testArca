@@ -4,8 +4,7 @@ const Contacto = ()=> import('./components/Contacto.vue')
 //componentes para el Modulo de examenes
 
 const Crear = ()=> import('./components/examenes/Crear.vue')
-const Listar = ()=> import('./components/examenes/Listar.vue')
-const Editar = ()=> import('./components/examenes/Editar.vue')
+
 // Componentes para la seccion de comics
 const ApiRick  = ()=> import('./components/comics/ApiRick.vue')
 
