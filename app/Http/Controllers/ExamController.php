@@ -48,7 +48,8 @@ class ExamController extends Controller
      */
     public function show($id)
     {
-        //
+        $exam = Exam::find($id);
+        return \response($exam);
     }
 
     /**
@@ -60,7 +61,9 @@ class ExamController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $exam = Exam::find($id);
+        $exam->update($request->all());
+        return \response($exam);
     }
 
     /**

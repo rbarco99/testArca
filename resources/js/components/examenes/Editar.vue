@@ -1,8 +1,8 @@
 <template>
     <div class="container container-form">
         <div class="form-examenes">
-            <h2 class="mb-3 text-center">Crear un nuevo examen</h2>
-            <form  @submit.prevent="crear">
+            <h2 class="mb-3 text-center">Editar examen</h2>
+            <form  @submit.prevent="actualizarExamen">
                 <div class="mb-3" >
                     <label for="titulo-examen" class="form-label">Titulo del examen</label>
                     <input v-model="examen.titulo" type="text" class="form-control" id="titulo-examen"> 
@@ -100,7 +100,7 @@
                 </div>
                 <br>
                 <div class="text-end">
-                    <button  type="submit" class="btn btn-primary">Crear examen</button>
+                    <button  type="submit" class="btn btn-primary">Actualizar examen</button>
                 </div>
             </form>
         </div>
@@ -111,30 +111,25 @@
 export default {
     data(){
         return {
-            examen:
-                {
-                    titulo:"",   //   Titulo del exámen
-                    descripcion:"",   
-                    tiempo:"",   // Tiempo para realizar el examen           
-                    intentos:"",   // Intentos permitidos
-                    preguntas:[    // array contenedor de preguntas
-                        {tipo:'multiple',    // Multiple/verdadero Falso
-                        enunciado:"",       
-                        verdadera:"",       // Almacena la respuesta si es de tipo True/False
-                        opciones:[          // Opciones de respuesta para pregunta tipo multiple
-                            {respuesta:'',       // Enunciado de la opción
-                            correcta: false     // Marca si la opcion es correcta
-                            }
-                        ]
-                        }
-                    ]
-                }           
-        }
+            examen:{}
+           }
     },
     mounted(){ // se ejecuta cuando se carga el componente 
         document.body.style.background = 'white';
+        this.cargarExamen();
     },
     methods: {
+        async cargarExamen(){
+            await this.axios.get(`/api/exams/${this.$route.params.id}`).then(response=>{
+                this.examen = response.data
+                
+                this.examen.preguntas = JSON.parse(this.examen.preguntas)
+                console.log(this.examen)
+                
+            }).catch(error=>{
+                console.log(error)
+            })
+        },
         agregarPregunta(){
             this.examen.preguntas.push({
                 tipo:'multiple',
@@ -158,10 +153,10 @@ export default {
         eliminarPregunta(index){
             this.examen.preguntas.splice(index,1)
         },
-        async crear(){ // Crea el examen enviando a la API 
+        async actualizarExamen(){ // Actualiza el examen enviando a la API 
             let prueba= this.examen
             prueba.preguntas = JSON.stringify(this.examen.preguntas)
-            await this.axios.post('/api/exams',prueba).then(response=>{
+            await this.axios.put(`/api/exams/${this.$route.params.id}`,prueba).then(response=>{
                 this.$router.push({name:"home"})
             }).catch(error=>{
                 console.log(error)

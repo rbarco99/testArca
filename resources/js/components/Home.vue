@@ -14,7 +14,7 @@
                <h4>No hay examenes para mostar, prueba creando uno nuevo</h4>
             </div>
             <div class="row ">
-                <div v-for="exam in exams" class="col-lg-4 col-md-6 mb-4 ">
+                <div v-for="(exam, index) in exams" :key="index" class="col-lg-4 col-md-6 mb-4 ">
                     <div >
                         <div class="card" style="width: 18rem;">
                         <img src="https://www.uss.cl/wp-content/uploads/2020/01/Estr%C3%A9s-post-PSU-consecuencias-y-recomendaciones.jpg" class="card-img-top" alt="efe">
@@ -28,6 +28,7 @@
                                 <i class="fas fa-book-reader m-2"></i><span>Cantidad de intentos: {{exam.intentos}}</span>
                             </div>
                             <div class="text-end">
+                                <router-link :to='{name:"editarExamen",params:{id:exam.id}}' ><i class="fas fa-edit"></i></router-link>
                                 <a  @click="borrarExamen(exam.id)" href="#"><i class="far fa-trash-alt"></i></a>
                             </div>
                         </div>
@@ -48,7 +49,6 @@
 export default {
     data(){
         return {
-            sub: 'js textogw',
             exams:[],
             cantidadExamenes: 0
             
@@ -69,7 +69,6 @@ export default {
                 console.log(this.cantidadExamenes)
             }).catch(error=>{
                 console.log(error)
-                
             })
         },
         borrarExamen(id){

@@ -2197,19 +2197,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 var Home = function Home() {
   return __webpack_require__.e(/*! import() */ "resources_js_components_Home_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/Home.vue */ "./resources/js/components/Home.vue"));
-};
-
-var Contacto = function Contacto() {
-  return __webpack_require__.e(/*! import() */ "resources_js_components_Contacto_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/Contacto.vue */ "./resources/js/components/Contacto.vue"));
 }; //componentes para el Modulo de examenes
 
 
 var Crear = function Crear() {
   return __webpack_require__.e(/*! import() */ "resources_js_components_examenes_Crear_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/examenes/Crear.vue */ "./resources/js/components/examenes/Crear.vue"));
-};
-
-var Listar = function Listar() {
-  return __webpack_require__.e(/*! import() */ "resources_js_components_examenes_Listar_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/examenes/Listar.vue */ "./resources/js/components/examenes/Listar.vue"));
 };
 
 var Editar = function Editar() {
@@ -2225,14 +2217,6 @@ var routes = [{
   name: 'home',
   path: '/',
   component: Home
-}, {
-  name: 'contacto',
-  path: '/contacto',
-  component: Contacto
-}, {
-  name: 'listarExamenes',
-  path: '/examenes',
-  component: Listar
 }, {
   name: 'crearExamen',
   path: '/crear',
@@ -35745,7 +35729,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_components_Home_vue":1,"resources_js_components_Contacto_vue":1,"resources_js_components_examenes_Crear_vue":1,"resources_js_components_examenes_Listar_vue":1,"resources_js_components_examenes_Editar_vue":1,"resources_js_components_comics_ApiRick_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_components_Home_vue":1,"resources_js_components_examenes_Crear_vue":1,"resources_js_components_examenes_Editar_vue":1,"resources_js_components_comics_ApiRick_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

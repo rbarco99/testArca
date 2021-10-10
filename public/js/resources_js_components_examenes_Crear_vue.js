@@ -139,30 +139,30 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      sub: 'js textogw',
       examen: {
         titulo: "",
+        //   Titulo del exámen
         descripcion: "",
         tiempo: "",
+        // Tiempo para realizar el examen           
         intentos: "",
-        preguntas: [{
+        // Intentos permitidos
+        preguntas: [// array contenedor de preguntas
+        {
           tipo: 'multiple',
+          // Multiple/verdadero Falso
           enunciado: "",
           verdadera: "",
-          opciones: [{
+          // Almacena la respuesta si es de tipo True/False
+          opciones: [// Opciones de respuesta para pregunta tipo multiple
+          {
             respuesta: '',
-            correcta: false
+            // Enunciado de la opción
+            correcta: false // Marca si la opcion es correcta
+
           }]
         }]
       }
@@ -1168,7 +1168,7 @@ var render = function() {
           }
         },
         [
-          _c("div", { key: 1, staticClass: "mb-3" }, [
+          _c("div", { staticClass: "mb-3" }, [
             _c(
               "label",
               { staticClass: "form-label", attrs: { for: "titulo-examen" } },
@@ -1538,8 +1538,8 @@ var render = function() {
                           })
                         ]),
                         _vm._v(" "),
-                        _vm._l(pregunta.opciones, function(opcion) {
-                          return _c("div", { key: index }, [
+                        _vm._l(pregunta.opciones, function(opcion, index2) {
+                          return _c("div", { key: index2 }, [
                             _c("div", { staticClass: "row m-4" }, [
                               _c("div", { staticClass: "col-md-1 p-2" }, [
                                 _c("input", {

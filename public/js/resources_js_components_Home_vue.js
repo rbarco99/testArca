@@ -76,10 +76,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      sub: 'js textogw',
       exams: [],
       cantidadExamenes: 0
     };
@@ -1095,62 +1095,86 @@ var render = function() {
       _c(
         "div",
         { staticClass: "row " },
-        _vm._l(_vm.exams, function(exam) {
-          return _c("div", { staticClass: "col-lg-4 col-md-6 mb-4 " }, [
-            _c("div", [
-              _c(
-                "div",
-                { staticClass: "card", staticStyle: { width: "18rem" } },
-                [
-                  _c("img", {
-                    staticClass: "card-img-top",
-                    attrs: {
-                      src:
-                        "https://www.uss.cl/wp-content/uploads/2020/01/Estr%C3%A9s-post-PSU-consecuencias-y-recomendaciones.jpg",
-                      alt: "efe"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "card-body" }, [
-                    _c("h5", { staticClass: "card-title" }, [
-                      _vm._v(_vm._s(exam.titulo))
-                    ]),
+        _vm._l(_vm.exams, function(exam, index) {
+          return _c(
+            "div",
+            { key: index, staticClass: "col-lg-4 col-md-6 mb-4 " },
+            [
+              _c("div", [
+                _c(
+                  "div",
+                  { staticClass: "card", staticStyle: { width: "18rem" } },
+                  [
+                    _c("img", {
+                      staticClass: "card-img-top",
+                      attrs: {
+                        src:
+                          "https://www.uss.cl/wp-content/uploads/2020/01/Estr%C3%A9s-post-PSU-consecuencias-y-recomendaciones.jpg",
+                        alt: "efe"
+                      }
+                    }),
                     _vm._v(" "),
-                    _c("p", { staticClass: "card-text" }, [
-                      _vm._v(_vm._s(exam.descripcion))
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "m-1" }, [
-                      _c("i", { staticClass: "fas fa-stopwatch m-2" }),
-                      _c("span", [_vm._v("Tiempo: " + _vm._s(exam.tiempo))])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "m-1" }, [
-                      _c("i", { staticClass: "fas fa-book-reader m-2" }),
-                      _c("span", [
-                        _vm._v("Cantidad de intentos: " + _vm._s(exam.intentos))
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "text-end" }, [
+                    _c("div", { staticClass: "card-body" }, [
+                      _c("h5", { staticClass: "card-title" }, [
+                        _vm._v(_vm._s(exam.titulo))
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "card-text" }, [
+                        _vm._v(_vm._s(exam.descripcion))
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "m-1" }, [
+                        _c("i", { staticClass: "fas fa-stopwatch m-2" }),
+                        _c("span", [_vm._v("Tiempo: " + _vm._s(exam.tiempo))])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "m-1" }, [
+                        _c("i", { staticClass: "fas fa-book-reader m-2" }),
+                        _c("span", [
+                          _vm._v(
+                            "Cantidad de intentos: " + _vm._s(exam.intentos)
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
                       _c(
-                        "a",
-                        {
-                          attrs: { href: "#" },
-                          on: {
-                            click: function($event) {
-                              return _vm.borrarExamen(exam.id)
-                            }
-                          }
-                        },
-                        [_c("i", { staticClass: "far fa-trash-alt" })]
+                        "div",
+                        { staticClass: "text-end" },
+                        [
+                          _c(
+                            "router-link",
+                            {
+                              attrs: {
+                                to: {
+                                  name: "editarExamen",
+                                  params: { id: exam.id }
+                                }
+                              }
+                            },
+                            [_c("i", { staticClass: "fas fa-edit" })]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              attrs: { href: "#" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.borrarExamen(exam.id)
+                                }
+                              }
+                            },
+                            [_c("i", { staticClass: "far fa-trash-alt" })]
+                          )
+                        ],
+                        1
                       )
                     ])
-                  ])
-                ]
-              )
-            ])
-          ])
+                  ]
+                )
+              ])
+            ]
+          )
         }),
         0
       )
